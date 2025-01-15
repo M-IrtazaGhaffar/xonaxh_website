@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Product from "./pages/Product";
@@ -12,12 +12,24 @@ import Footer from "./components/Footer";
 import AllProducts from "./pages/AllProducts";
 
 function App() {
+
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  
+    return null;
+  };
+
   return (
     <div className="body-font font-playfair text-black bg-white">
       <BrowserRouter>
+      <ScrollToTop />
       <Nav />
         <Routes>
-          <Route exact path="/home" element={<Home />} />
+          <Route exact path="*" element={<Home />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/products" element={<AllProducts />} />
           <Route exact path="/products/men" element={<Products />} />

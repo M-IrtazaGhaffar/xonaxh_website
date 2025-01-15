@@ -52,7 +52,7 @@ function Cart() {
         </div>
       ) : (
         <div>
-          <h2 className="text-2xl pb-10">Cart</h2>
+          <h2 className="text-5xl pb-10">Cart</h2>
           <div className="flex gap-5 flex-wrap items-center justify-center">
           {Data.map((item) => {
             return (

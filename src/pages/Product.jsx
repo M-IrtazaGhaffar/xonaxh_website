@@ -12,11 +12,19 @@ function Product() {
   const [Loading1, setLoading1] = useState(1);
   const [Type, setType] = useState("");
   const Data = {
-    name: "Testing",
-    tags: "Wash & Ware",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab aperiam sapiente illo odio doloremque porro, dolorum tenetur rem sit. Repudiandae recusandae vero rerum modi cumque esse aperiam dolore blanditiis necessitatibus, molestias omnis maxime! Modi culpa recusandae ab quos aut delectus quae odit et distinctio quasi laudantium doloribus corrupti explicabo nam officiis magnam expedita, adipisci ullam, corporis incidunt id. Iste consequuntur quod animi fuga. Eveniet iure beatae neque a possimus cumque, delectus totam debitis eligendi quam blanditiis sint adipisci autem quaerat expedita et, laboriosam sunt pariatur harum perferendis nihil? Ducimus nisi aperiam similique veritatis in quam placeat aliquid ad exercitationem laboriosam?",
-    price: 3500,
-    type: "men",
+    id: 10,
+    name: "Velvet Jade",
+    frontimage:
+      "https://nishatlinen.com/cdn/shop/files/42418786-1_253e3bc5-2ddd-4697-bb76-e557bbf93943.jpg?v=1728984365&width=700",
+    backimage:
+      "https://nishatlinen.com/cdn/shop/files/42418786-1.jpg?v=1728983898&width=700",
+    description:
+      "Experience unparalleled comfort with our men's undergarments, designed to make you feel confident and supported all day long. The smooth, soft fabric glides against your skin, offering a luxurious sensation that you'll love. Each piece is crafted for an exceptional fit, ensuring it moves with you without riding up or constricting. From classic briefs to modern boxer briefs, our collection provides styles that cater to every preference. Enjoy breathability and durability with every wear, making these undergarments a staple in your wardrobe. Feel the smoothness and embrace the perfect fit that enhances your daily comfort and style.",
+    tag: "Gucci",
+    price: "1900",
+    shopname: "Xonaxh Pakistan",
+    categoryname: "Mens",
+    subcategoryname: "Kurta Shalwar",
   };
 
   // useEffect
@@ -54,11 +62,12 @@ function Product() {
       <Loading />
     </div>
   ) : (
-    <div className="flex lg:p-20 p-10 gap-10 flex-wrap flex-row">
+    <div className="flex lg:p-20 p-10 gap-10 flex-wrap justify-center flex-row">
       <div className="w-full">
-        <div className="text-center text-xl mb-10 flex justify-center">
-          <h2 className="bg-black text-white rounded-full py-1 px-6">
-            Product Details
+        <div className="text-center text-2xl mb-10 flex justify-center">
+          <h2 className="flex flex-col justify-center items-center gap-2 rounded border-2 border-black">
+            <span className="bg-black text-white px-5 py-1 w-full">A Product by</span>
+            <span className="text-3xl px-5 py-2">{Data.shopname}</span>
           </h2>
         </div>
         <h2 className="text-3xl mb-3 flex items-center gap-2">
@@ -78,55 +87,34 @@ function Product() {
           {Data.name}
         </h2>
         <span className="text-sm border-2 rounded-3xl py-1 px-3 border-black">
-          {Data.tags}
+          {Data.tag}
         </span>
-        <p className="flex items-center gap-2 capitalize pt-2 px-1">
-          Type
+        <p className="flex items-center gap-2 capitalize py-2 px-1">
+          Category
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-caret-right-fill"
+            className="bi bi-caret-right-fill"
             viewBox="0 0 16 16"
           >
             <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
           </svg>
-          {Data.type}
+          {Data.categoryname} ({Data.subcategoryname})
         </p>
       </div>
-      <div className="flex justify-center items-center flex-wrap gap-2">
-        <img
-          className="w-96"
-          src="https://www.junaidjamshed.com/media/catalog/product/2/0/2010_dark_green.jpg"
-          alt=""
-        />
-        <img
-          className="w-96"
-          src="https://www.junaidjamshed.com/media/catalog/product/2/0/2010_dark_green.jpg"
-          alt=""
-        />
-        <img
-          className="w-96"
-          src="https://www.junaidjamshed.com/media/catalog/product/2/0/2010_dark_green.jpg"
-          alt=""
-        />
-        <img
-          className="w-96"
-          src="https://www.junaidjamshed.com/media/catalog/product/2/0/2010_dark_green.jpg"
-          alt=""
-        />
-        <img
-          className="w-96"
-          src="https://www.junaidjamshed.com/media/catalog/product/2/0/2010_dark_green.jpg"
-          alt=""
-        />
+      <div className="flex justify-center items-start flex-col lg:flex-row gap-2">
+        <img className="w-80 rounded" src={Data.frontimage} alt="" />
+        <img className="w-80 rounded" src={Data.backimage} alt="" />
+        <div className="sm:m-5 flex flex-col gap-3">
+          <p>{Data.description}</p>
+          <span className="text-2xl border-2 border-black rounded-3xl italic px-3 py-1 w-fit">
+            {Data.price}/- <span className="text-xs">PKR Only</span>
+          </span>
+        </div>
       </div>
-      <div>
-        <p className="mt-5 mb-2">{Data.desc}</p>
-        <span className="text-xl bg-slate-500 text-white italic px-3 py-1">
-          {Data.price}/- <span className="text-sm">PKR Only</span>
-        </span>
+      <div className="flex flex-col items-start justify-start w-full">
         <div className="py-5 flex flex-wrap gap-2">
           <button className="bg-black text-white rounded-full py-2 px-6 hover:text-black hover:bg-white border-2 border-black">
             Add to cart
@@ -180,9 +168,8 @@ function Product() {
             width="25"
             height="25"
             fill="white"
-            class="bi bi-arrow-left"
+            className="bi bi-arrow-left bg-black mt-1 p-2 w-8 h-8 rounded-full cursor-pointer"
             viewBox="0 0 16 16"
-            className="bg-black mt-1 p-2 w-8 h-8 rounded-full cursor-pointer"
             onClick={() => navigate(-1)}
           >
             <path

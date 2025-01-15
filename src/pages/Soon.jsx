@@ -8,7 +8,7 @@ function Soon() {
         width="40"
         height="40"
         fill="currentColor"
-        class="bi bi-stopwatch"
+        className="bi bi-stopwatch"
         viewBox="0 0 16 16"
       >
         <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z" />

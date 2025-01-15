@@ -8,7 +8,8 @@ module.exports = {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         playfair: ["Playfair", "serif"],
-        arabic: ['IBM Plex Sans Arabic', "sans-serif"]
+        arabic: ['IBM Plex Sans Arabic', "sans-serif"],
+        urdu: ["Noto Nastaliq Urdu", "serif"]
       },
     },
   },

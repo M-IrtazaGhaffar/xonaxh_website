@@ -8,8 +8,8 @@ function Logo() {
       <svg
         version="1.0"
         xmlns="http://www.w3.org/2000/svg"
-        width="90px"
-        height="90px"
+        width="75px"
+        height="75px"
         viewBox="0 0 19272.000000 15986.000000"
         preserveAspectRatio="xMidYMid meet"
         onClick={() => navigate('/home')}
